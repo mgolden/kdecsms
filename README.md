@@ -1,0 +1,2 @@
+# kdecsms
+KDE Commandline SMS
