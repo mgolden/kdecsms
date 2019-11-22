@@ -106,7 +106,7 @@ However, if you change the To: number, you don't have to refresh (though it won'
 * The package should include an install that puts it in the command menu
 * It shouldn't really invoke kdeconnect-cli via a shell when a direct fork-exec would do.
 * The logo sucks.
-
+* It seems that pyqt doesn't use the system theme.
 
 ## Author
 
