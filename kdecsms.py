@@ -121,15 +121,24 @@ class WidgetGallery(QDialog):
         result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True, shell=True)
         return (result.stdout, result.stderr)
 
-    
+
+    zero_devices = "0 devices found"
     def getPhones(self):
         # print("getPhones")
+        # 2020-07-08 - At some point it seems that the message "0 devices found" moved from out to err
         command = " ".join([kdeconnect_cli, "-a", "--id-name-only"])
         (out,err) = self.runcmd(command)
-        res = out.split("\n")
-        res = [x for x in res if x] # remove blank lines; there is one on end
-        if res[0] == "0 devices found":
-            res = []
+        if err:
+            if err[0:self.zero_devices.__len__()] == self.zero_devices:
+                res = []
+            else:
+                print(err)
+                sys.exit(1)
+        else:
+            res = out.split("\n")
+            res = [x for x in res if x] # remove blank lines; there is one on end
+            if res and res[0] == "0 devices found":
+                res = []
         phones = []
         for line in res:
             i = line.find(" ")
