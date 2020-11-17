@@ -8,7 +8,7 @@ VALID_PATH=
 export VALID_PATH
 
 function green_text {
-	echo -e "\e[46m\e[103m$1\e[0m"
+	echo -e "\e[92m$1\e[0m"
 }
 
 function red_text {
@@ -98,3 +98,5 @@ FINAL_PATH=$VALID_PATH/kdecsms
 green_text "The file kdecsms.py will be copied to $FINAL_PATH. You will be asked to provide your password."
 sudo cp kdecsms.py $FINAL_PATH && green_text "The file kdecsms was copied successfully to $FINAL_PATH" || red_text "Copying the file kdecsms.py to $FINAL_PATH failed"
 sudo chmod +x $FINAL_PATH && green_text "The execute-permission for $FINAL_PATH was set successfully" || red_text "Setting the execute-permission for $FINAL_PATH failed"
+sudo cp kdecsms.gif /usr/local/src && green_text "Copying to logo to /usr/local/src/kdecsms.gif worked" || red_text "Copying the logo to /usr/local/src/kdecsms.gif failed"
+sudo cp kdecsms.desktop /usr/share/applications && green_text "Copying to desktop file to /usr/share/applications/kdecsms.desktop worked" || red_text "Copying the desktop file to /usr/share/applications/kdecsms.desktop failed"
