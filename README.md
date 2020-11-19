@@ -47,7 +47,15 @@ I doubtless did some things in a clucky way.
 
 ## Installation
 
-Though it is called kdecsms, it actually should be able to run on any desktop so long as the prerequisites are installed:
+Though it is called kdecsms, it actually should be able to run on any desktop so long as the prerequisites are installed.
+
+On Debian, Ubuntu and Mint, running
+
+```console
+bash install.sh
+```
+
+should be sufficient. Otherwise, to install it manually, follow these steps:
 
 * kdeconnect
     * `sudo apt-get install kdeconnect`
@@ -65,7 +73,8 @@ You should be able to remove the `.py` from the filename if you want, so long as
 
 ## Setup for Thunderbird/Cardbook
 
-* First, check if you already have a `callto` action configured.
+* First, make sure you have the plugin CardBook installed.
+* Then, check if you already have a `callto` action configured.
 * Go to Edit > Preferences > Attachments, and see if there is an action defined for `callto`.
 * If there is, you will need to delete it.
 (You probably don't have one configured unless you use a SIP autodialer on your computer.
@@ -111,7 +120,7 @@ However, if you change the To: number, you don't have to refresh (though it won'
 ## Author
 
 * **Mitch Golden** - *Initial work* - [mgolden](https://github.com/mgolden)
-
+* Norman Koch - Writing the Installer [NormanTUD](https://github.com/NormanTUD)
 
 ## License
 
