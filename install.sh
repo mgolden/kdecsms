@@ -36,9 +36,10 @@ function install_if_not_exists {
 
 function die_unless_debianlike {
 	if [[ "$CHECK_FOR_DEBIANLIKE" -eq "1" ]]; then
-		if ! cat /etc/issue | egrep -i "debian|ubuntu|mint|pop\!_os" > /dev/null; then
-			red_text "You seem to not be on Debian, (K)Ubuntu, Mint or Pop!_os, but this installer only works on these."
-			red_text "If you want to run it anyway, run it with --no-os-check"
+		if ! command -v apt >/dev/null; then
+			red_text "You seem to not be on a Debian-like OS, like (K)Ubuntu, Mint or Pop!_os (and Debian, of course), but this installer only works on these."
+			red_text "If you want to run it anyway, run this script as bash install.sh --no-os-check"
+			exit 1
 		fi
 	fi
 }
